@@ -6,7 +6,7 @@ import chair from '../../../images/chair.png';
 import bgImage from '../../../images/bg.png'
 
 const bannerBg = {
-    background: `url${bgImage}`
+    background: `url(${bgImage})`
 }
 const verticalCenter = {
     display: 'flex',
