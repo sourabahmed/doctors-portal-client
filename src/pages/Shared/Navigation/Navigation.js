@@ -27,7 +27,10 @@ const Navigation = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Doctors Portal
                     </Typography>
+                    <Box>
                     <NavLink style={{textDecoration: 'none', color: 'white'}} to='/appointment'><Button color="inherit">Appointment</Button></NavLink>
+                    <NavLink style={{textDecoration: 'none', color: 'white'}} to='/dashboard'><Button color="inherit">Dashbord</Button></NavLink>
+                    </Box>
                     {
                         user?.email ?
                             <Button onClick={logOut} color="inherit">Logout</Button>:
