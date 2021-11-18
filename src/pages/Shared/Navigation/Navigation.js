@@ -28,6 +28,7 @@ const Navigation = () => {
                         Doctors Portal
                     </Typography>
                     <Box>
+                    <NavLink style={{textDecoration: 'none', color: 'white'}} to='/home'><Button color="inherit">Home</Button></NavLink>
                     <NavLink style={{textDecoration: 'none', color: 'white'}} to='/appointment'><Button color="inherit">Appointment</Button></NavLink>
                     <NavLink style={{textDecoration: 'none', color: 'white'}} to='/dashboard'><Button color="inherit">Dashbord</Button></NavLink>
                     </Box>

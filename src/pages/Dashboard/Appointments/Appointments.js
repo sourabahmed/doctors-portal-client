@@ -7,19 +7,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import {Link} from "react-router-dom";
 
 import useAuth from './../../../hooks/useAuth.js';
 
 const Appointments = ({date}) => {
     const { user } = useAuth();
     const [appointments, setAppointments] = useState([]);
-
+    const newDate = date.toLocaleDateString();
+    console.log(newDate)
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?email=${user.email}`
+        const url = `http://localhost:5000/appointments?email=${user.email}&date=${newDate}`
         fetch(url)
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [])
+    }, [newDate])
     return (
         <div>
             <h2>Appointments {appointments.length}</h2>
@@ -29,6 +31,7 @@ const Appointments = ({date}) => {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell align="right">Time</TableCell>
+                            <TableCell align="right">Service</TableCell>
                             <TableCell align="right">Action</TableCell>
                             
                         </TableRow>
@@ -43,9 +46,10 @@ const Appointments = ({date}) => {
                                     {row.patientName}
                                 </TableCell>
                                 <TableCell align="right">{row.date}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
+                                <TableCell align="right">{row.serviceName}</TableCell>
+                                <TableCell align="right">{row.payment ? 'paid':
+                                <Link to={`/dashboard/payment/${row._id}`}><button>Pay</button></Link>
+                                }</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

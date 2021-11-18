@@ -28,6 +28,7 @@ import { Button } from '@mui/material';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddDoctor from '../AddDoctor/AddDoctor';
+import Payment from '../Payment/Payment';
 
 
 const drawerWidth = 200;
@@ -130,6 +131,9 @@ function Dashboard(props) {
                 <Switch>
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
+                    </Route>
+                    <Route path={`${path}/payment/:appointmentId`}>
+                        <Payment></Payment>
                     </Route>
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
